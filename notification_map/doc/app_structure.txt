@@ -1,0 +1,6 @@
+100% Riciclo Web-Server Structure
+
+This web-application shows on a map the notifications received by the server:
+- server.js: implements a support server that calls the multi-utility server for our web-server as “localhost”;
+- index.html: implements the web-server interface;
+- script.js: implements the web-server functionalities. It consists of a controller “mainCtrl” and its main functionality are an http get to load the notifications from the server, a custom function “createMarkers” to create the markers on the map and a function “pushChange” to control the displaying or not of the markers of a category following a click by the user on the corresponding checkbox.

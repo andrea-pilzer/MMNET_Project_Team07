@@ -1,0 +1,28 @@
+"100% RICICLO" APPLICATION STRUCTURE
+
+The "100% riciclo" app has the typical structure of a Ionic generated application:
+- the folder bins contains a .apk version of the application;
+- the folder hooks contains some scripts which are used for the building of the apps;
+- the folder node_modules  contains some modules useful for some app services;
+- the folder plugins contains all plug-ins which has been installed in the app to improve its functionalities and capability to interact with hardware components;
+- the folder resources contains images and graphic elements used by the application;
+- the folders rifiuti and scss contains some minor files;
+- the folder www contains all source files.
+Once having building for the first time the application, also a folder platform will appear, which will contain all files (including the executable files) related to the specific platform.
+
+FOLDER WWW
+As already mentioned, this folder contains all source files for the application. Some relevant elements:
+- index.html : is the first file which is launched from the app, describes all the plug-ins, libraries and dependencies of the application.
+- css folder: contains the style.css file, which describes the appearance of the elements in all html files.
+- templates folder : contains all html files, each one of these represents a different window displayed in the app.
+- js folder: contains the sub-folder services, which are javascript functions which implements some functionalities useful for the application (for ex. geolocation, calendar, data management, ecc.). Moreover it contains a subfolder controllers, which contains  the javascript files controlling the behavior of the different html files; about this is very useful viewing the app.js files (contained in www/js), which from line 907 provides for each html page the associated javascript controller, simplifying the code understanding.
+
+INTEGRATION OF QR CODES
+To integrate the QR Code functionalities, we have integrated some functionalities in the app.js file:
+- global function handleOpenURL(url): takes as input the url with which the app was launched, elaborates it and provides in a format which is suitable for the application.
+- qrCodeController AngularJS controller: analyzes the url, extracts the useful information and displays the correct app window.
+
+NOTIFICATION SENDING
+To integrate the functionalities of notification sending, we have includes some new parts in the original code:
+- tipiDiRaccolta.html: we have included all elements which are needed to add the "send notifications" buttons", the popup and the confirmation button;
+- popup.js: we have created a dedicated controller ("PopupCtrl") to manage the sending of the notifications.  Besides some accessory functions, the main function is "showPopup", which takes as input the type of garbage for which the notification was sent. If the global variable "hidePopup" is set to 'true' a confirmation popup is showed, otherwise the notification is sent directly to the server. Finally a toast notification is displayed on the phone.

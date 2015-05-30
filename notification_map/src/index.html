@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:ng="http://angularjs.org/" ng-app="appMaps">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Mappa Notifiche</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://code.angularjs.org/1.3.14/angular.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.js"></script>
+    <script src="http://rawgit.com/angular-ui/angular-google-maps/2.0.X/dist/angular-google-maps.js"></script>
+    <script type='text/javascript' src='script.js'></script><!--script-->
+    
+</head>
+
+<body ng-controller="mainCtrl">
+    
+    <div class="margin">
+        <label class="padding"><b>Segnalazioni: </b></label>
+        <label  class="padding">
+            <input type="checkbox" text="Show" ng-model="marker_visible.carta" ng-change="pushChange('carta')">
+            <b>Carta</b>
+        </label>
+        
+        <label class="padding">
+            <input type="checkbox" text="Show" ng-model="marker_visible.imballaggi" ng-change="pushChange('imballaggi')">
+            <b>Imballaggi leggeri</b>
+        </label>
+        
+        <label class="padding">
+            <input type="checkbox" text="Show" ng-model="marker_visible.residuo" ng-change="pushChange('residuo')">
+            <b>Rifiuto residuo</b>
+        </label>
+        
+        <label class="padding">
+            <input type="checkbox" text="Show" ng-model="marker_visible.potature" ng-change="pushChange('potature')">
+            <b>Sfalci e potature</b>
+        </label>
+        
+        <label class="padding">
+            <input type="checkbox" text="Show" ng-model="marker_visible.umido" ng-change="pushChange('umido')">
+            <b>Umido - organico</b>
+        </label>
+        
+        <label class="padding">
+            <input type="checkbox" text="Show" ng-model="marker_visible.vetro" ng-change="pushChange('vetro')">
+            <b>Vetro</b>
+        </label>
+        
+        <label class="padding">
+            <input type="checkbox" ng-model="marker_visible.all" ng-change="pushChange('all')">
+            <b>  Seleziona tutto</b>
+        </label>
+    </div>
+    
+    <div id="map_canvas">
+        <ui-gmap-google-map center="map.center" zoom="map.zoom" options="options">
+            <ui-gmap-markers models="markers" coords="'self'" options="'markerOptions'" icon="'icon'" dorebuildall="true"></ui-gmap-marker>
+        
+        </ui-gmap-google-map>
+    </div>
+    
+</body>
+
+</html>
